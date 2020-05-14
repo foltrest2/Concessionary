@@ -11,10 +11,14 @@ public abstract class Person {
 //	methods
 	
 	/**
+	 * This method is the constructor of person
+	 * <b><pre>:<br><br>
 	 * 
-	 * @param name
-	 * @param lastName
-	 * @param id
+	 * @param name is the name of the person
+	 * @param lastName is the last name of the person
+	 * @param id is the id of the person
+	 * 
+	 * <b><post>:<br><br>
 	 */
 	public Person(String name, String lastName, String id) {
 		this.id = id;
@@ -26,10 +30,6 @@ public abstract class Person {
 		return this.name;
 	}
 
-	/**
-	 * 
-	 * @param name
-	 */
 	public void setName(String name) {
 		this.name = name;
 	}
@@ -38,10 +38,6 @@ public abstract class Person {
 		return this.lastName;
 	}
 
-	/**
-	 * 
-	 * @param lastName
-	 */
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
 	}
@@ -50,10 +46,6 @@ public abstract class Person {
 		return this.id;
 	}
 
-	/**
-	 * 
-	 * @param id
-	 */
 	public void setId(String id) {
 		this.id = id;
 	}

@@ -16,12 +16,16 @@ public class Seller extends Person {
 	
 //	methods
 
+
 	/**
+	 * This method is the constructor of seller
+	 * <b><pre>:<br><br>
 	 * 
-	 * @param name
-	 * @param lastName
-	 * @param id
-	 * @param totalSells
+	 * @param name String is the name of employee
+	 * @param lastName String if the last name of employee
+	 * @param id integer is the id of employee
+	 * 
+	 * <b><post>:<br><br>
 	 */
 	public Seller(String name, String lastName, String id) {
 		super(name, lastName, id);
@@ -33,10 +37,6 @@ public class Seller extends Person {
 		return this.totalSells;
 	}
 
-	/**
-	 * 
-	 * @param totalSells
-	 */
 	public void setTotalSells(int totalSells) {
 		this.totalSells = totalSells;
 	}

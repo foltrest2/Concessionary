@@ -14,18 +14,28 @@ public abstract class Document {
 //	methods
 	
 	/**
+	 * This method is the constructor of documents 
+	 * <b><pre>:<br><br>
 	 * 
-	 * @param price
-	 * @param year
-	 * @param imageCode
-	 * @param code
+	 * @param price double documents price
+	 * @param year int documents year
+	 * @param matrix int[][] is the general random matrix for documentations
+	 * 
+	 * <b><post>:<br><br>
 	 */
 	public Document(double price, int year) {
 		this.price = price;
 		this.year = year;
 		this.matrix = makeMatrix();
 	}
-	
+	/**
+	 * This method make a random matrix of integers
+	 * <b><pre>:<br><br>
+	 * 
+	 * @return matrix of integers ready to coding
+	 * 
+	 * <b><post>:<br>Matrix is randomly and ready to use it<br>
+	 */
 	public int[][] makeMatrix() {
 		matrix = new int[SIZE][SIZE];
 		Random ran = new Random();
@@ -36,7 +46,11 @@ public abstract class Document {
 		}
 		return matrix;
 	}
-	
+	/**
+	 * This method initialize the description for the heritage
+	 * 
+	 * @return String info null
+	 */
 	public String description() {
 		String info ="";
 		return info;
@@ -46,10 +60,6 @@ public abstract class Document {
 		return this.price;
 	}
 
-	/**
-	 * 
-	 * @param price
-	 */
 	public void setPrice(double price) {
 		this.price = price;
 	}
@@ -58,10 +68,6 @@ public abstract class Document {
 		return this.year;
 	}
 
-	/**
-	 * 
-	 * @param year
-	 */
 	public void setYear(int year) {
 		this.year = year;
 	}
@@ -70,10 +76,6 @@ public abstract class Document {
 		return this.matrix;
 	}
 
-	/**
-	 * 
-	 * @param matrix
-	 */
 	public void setMatrix(int[][] matrix) {
 		this.matrix = matrix;
 	}

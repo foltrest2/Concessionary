@@ -27,11 +27,15 @@ public class Company {
 	//	methods
 
 	/**
+	 * This method is the constructor of Company
+	 * <b><pre>:<br>
 	 * 
-	 * @param name
-	 * @param nit
-	 * @param totalGain
-	 * @param sells
+	 * @param name is the name of company
+	 * @param nit is the of company
+	 * @param totalGain of the price vehicles sold
+	 * @param sells quantity of sales
+	 * 
+	 * <b>post: Create a Company object</b>
 	 */
 	public Company(String name, String nit, double totalGain, int sells) {
 		this.name = name;
@@ -42,115 +46,275 @@ public class Company {
 		sellers = new Seller[MAX_SELLERS];
 		clientsHistorial = new ArrayList<>();
 		sellers[0] = new Seller("Kevin", "Mera", "1007778208");
-		sellers[1] = new Seller("Juan", "Rodriguez", "1027475261");
-		sellers[2] = new Seller("Mario", "Casas", "1056871202");
-		sellers[3] = new Seller("Valentina", "Solarte", "1007334770");
-		sellers[4] = new Seller("José", "Ordoñez", "1002358351");
-		sellers[5] = new Seller("Miguel", "Monitor", "1006327241");
-		Vehicle m1 = new Gasoline(1000, "BMW", 2020, 10, 10, "new", "sedan", 4, "yes", 1, 20, "Diesel");
-		Vehicle m2 = new Electric(1000, "Tesla", 2020, 10, 10, "new", "sedan", 4, "yes", 2, "Fast", 10);
-		Vehicle m3 = new Hybrid(1000, "Nissan", 2020, 10, 10, "new", "sedan", 4, "yes", 1, "Fast", 10, 20, "Diesel");
-		Vehicle m4 = new Motorcycle(1000, "Honda", 2020, 10, 10, "new", "Cross", 10);
-		Vehicle m5 = new Electric(1000, "Tesla", 2020, 10, 10, "new", "sedan", 4, "yes", 2, "Normal", 10);
-		vehicles.add(m1);
-		vehicles.add(m2);
-		vehicles.add(m3);
-		vehicles.add(m4);
-		vehicles.add(m5);
+		sellers[1] = new Seller("Valentina", "Solarte", "1007334770");
+		sellers[2] = new Seller("Miguel", "Monitor", "1006327241");
 	}
+	/**
+	 * This method create and add a new gasoline car 
+	 * <b><pre>:<br><br>
+	 * 
+	 * @param basePrice double base price of vehicle
+	 * @param brand String about the vehicle brand
+	 * @param model integer year of model
+	 * @param cylinder double cylinder of vehicle
+	 * @param mileage integer of kilometers traveled
+	 * @param time String is the vehicle is new or used
+	 * @param bodyType String is sedan or van
+	 * @param doors integer quantity of doors
+	 * @param windows String if the windows are polarized or no
+	 * @param typeCar is the number assigned to choose this type of car
+	 * @param tankCapacity double capacity of the gas tank
+	 * @param typeGasoline String type of gasoline
+	 * @return a new Gasoline vehicle
+	 * <b><post>:<br><br>
+	 */
 	public Gasoline createGasolineCar(double basePrice, String brand, int model, int cylinder, int mileage, String time, String bodyType, int doorsNumber, String windows, int typeCar, double tankCapacity, String typeGasoline) {
 		Gasoline gasoline = new Gasoline(basePrice, brand, model, cylinder, mileage, time, bodyType, doorsNumber, windows, typeCar, tankCapacity, typeGasoline);
 		addVehicle(gasoline);
 		return gasoline;
 	}
-
+	/**
+	 * This method create and add an used gasoline car 
+	 * <b><pre>:<br><br>
+	 * 
+	 * @param basePrice double base price of vehicle
+	 * @param brand String about the vehicle brand
+	 * @param model integer year of model
+	 * @param cylinder double cylinder of vehicle
+	 * @param mileage integer of kilometers traveled
+	 * @param time String is the vehicle is new or used
+	 * @param plaque String plaque
+	 * @param bodyType String is sedan or van
+	 * @param doors integer quantity of doors
+	 * @param windows String if the windows are polarized or no
+	 * @param typeCar is the number assigned to choose this type of car
+	 * @param tankCapacity double capacity of the gas tank
+	 * @param typeGasoline String type of gasoline
+	 * @param priceS double price of soat document
+	 * @param priceM double price of mechanical technician document
+	 * @param yearS integer year of documents
+	 * @param yearM integer year of mechanical technician
+	 * @param accidents double price of accidents cover
+	 * @param gasLevel double of gas level
+	 * @return an used Gasoline vehicle
+	 * <b><post>:<br><br>
+	 */
 	public Gasoline createGasolineCar(double basePrice, String brand, int model, int cylinder, int mileage, String time, String plaque, String bodyType, int doorsNumber, String windows, int typeCar, double tankCapacity, String typeGasoline, double priceS, double priceM, int yearS, int yearM,  double accidents, double gasLevel) {
 		Gasoline gasoline = new Gasoline(basePrice, brand, model, cylinder, mileage, time, plaque, bodyType, doorsNumber, windows, typeCar, tankCapacity, typeGasoline, priceS, priceM, yearS, yearM, accidents, gasLevel);
 		addVehicle(gasoline);
 		return gasoline;
 	}
-
+	/**
+	 * This method create and add a new electric car 
+	 * <b><pre>:<br><br>
+	 * 
+	 * @param basePrice double base price of vehicle
+	 * @param brand String about the vehicle brand
+	 * @param model integer year of model
+	 * @param cylinder double cylinder of vehicle
+	 * @param mileage integer of kilometers traveled
+	 * @param time String is the vehicle is new or used
+	 * @param bodyType String is sedan or van
+	 * @param doors integer quantity of doors
+	 * @param windows String if the windows are polarized or no
+	 * @param typeCar is the number assigned to choose this type of car
+	 * @param typeCharger String type of charger
+	 * @param batteryLife double battery life per kilometer
+	 * @return a new electric vehicle
+	 * <b><post>:<br><br>
+	 */
 	public Electric createElectricCar(double basePrice, String brand, int model, int cylinder, int mileage, String time,String bodyType, int doorsNumber, String windows, int typeCar, String typeCharger, double batteryLife) {
 		Electric electric = new Electric(basePrice, brand, model, cylinder, mileage, time, bodyType, doorsNumber, windows, typeCar, typeCharger, batteryLife);
 		addVehicle(electric);
 		return electric;
 	}
-
+	/**
+	 * This method create and add an used electric car 
+	 * <b><pre>:<br><br>
+	 * 
+	 * @param basePrice double base price of vehicle
+	 * @param brand String about the vehicle brand
+	 * @param model integer year of model
+	 * @param cylinder double cylinder of vehicle
+	 * @param mileage integer of kilometers traveled
+	 * @param time String is the vehicle is new or used
+	 * @param plaque String plaque
+	 * @param bodyType String is sedan or van
+	 * @param doors integer quantity of doors
+	 * @param windows String if the windows are polarized or no
+	 * @param typeCar is the number assigned to choose this type of car
+	 * @param typeCharger String type of charger
+	 * @param batteryLife double battery life per kilometer
+	 * @param priceS double price of soat document
+	 * @param priceM double price of mechanical technician document
+	 * @param yearS integer year of documents
+	 * @param yearM integer year of mechanical technician
+	 * @param accidents double price of accidents cover
+	 * @param gasLevel double of gas level
+	 * @return an used electric vehicle
+	 * <b><post>:<br><br>
+	 */
 	public Electric createElectricCar(double basePrice, String brand, int model, int cylinder, int mileage, String time, String plaque, String bodyType, int doorsNumber, String windows, int typeCar, String typeCharger, double batteryLife, double priceS, double priceM, int yearS, int yearM,  double accidents, double gasLevel) {
 		Electric electric = new Electric(basePrice, brand, model, cylinder, mileage, time, plaque, bodyType, doorsNumber, windows, typeCar, typeCharger, batteryLife, priceS, priceM, yearS, yearM, accidents, gasLevel);
 		addVehicle(electric);
 		return electric;
 	}
-
+	/**
+	 * This method create and add a new hybrid car 
+	 * <b><pre>:<br><br>
+	 * 
+	 * @param basePrice double base price of vehicle
+	 * @param brand String about the vehicle brand
+	 * @param model integer year of model
+	 * @param cylinder double cylinder of vehicle
+	 * @param mileage integer of kilometers traveled
+	 * @param time String is the vehicle is new or used
+	 * @param bodyType String is sedan or van
+	 * @param doors integer quantity of doors
+	 * @param windows String if the windows are polarized or no
+	 * @param typeCar is the number assigned to choose this type of car
+	 * @param typeCharger String type of charger
+	 * @param batteryLifeH double battery life per kilometer
+	 * @param tankCapacityH double capacity of the gas tank
+	 * @param typeGasoline String type of gasoline
+	 * @return a new hybrid vehicle
+	 * <b><post>:<br><br>
+	 */
 	public Hybrid createHybridCar(double basePrice, String brand, int model, int cylinder, int mileage, String time, String bodyType, int doorsNumber, String windows, int typeCar, String typeCharger, double batteryLifeH, double tankCapacityH, String typeGasoline) {
 		Hybrid hybrid = new Hybrid(basePrice, brand, model, cylinder, mileage, time, bodyType, doorsNumber, windows, typeCar, typeCharger, batteryLifeH, tankCapacityH, typeGasoline);
 		addVehicle(hybrid);
 		return hybrid;
 	}
-
+	/**
+	 * This method create and add an used hybrid car 
+	 * <b><pre>:<br><br>
+	 * 
+	 * @param basePrice double base price of vehicle
+	 * @param brand String about the vehicle brand
+	 * @param model integer year of model
+	 * @param cylinder double cylinder of vehicle
+	 * @param mileage integer of kilometers traveled
+	 * @param time String is the vehicle is new or used
+	 * @param plaque String plaque
+	 * @param bodyType String is sedan or van
+	 * @param doors integer quantity of doors
+	 * @param windows String if the windows are polarized or no
+	 * @param typeCar is the number assigned to choose this type of car
+	 * @param typeCharger String type of charger
+	 * @param batteryLifeH double battery life per kilometer
+	 * @param tankCapacityH double capacity of the gas tank
+	 * @param typeGasoline String type of gasoline
+	 * @param priceS double price of soat document
+	 * @param priceM double price of mechanical technician document
+	 * @param yearS integer year of documents
+	 * @param yearM integer year of mechanical technician
+	 * @param accidents double price of accidents cover
+	 * @param gasLevel double of gas level
+	 * @return an used hybrid vehicle
+	 * <b><post>:<br><br>
+	 */
 	public Hybrid createHybridCar(double basePrice, String brand, int model, int cylinder, int mileage, String time, String plaque, String bodyType, int doorsNumber, String windows, int typeCar, String typeCharger, double batteryLifeH, double tankCapacityH, String typeGasoline, double priceS, double priceM, int yearS, int yearM,  double accidents, double gasLevel) {
 		Hybrid hybrid = new Hybrid(basePrice, brand, model, cylinder, mileage, time, plaque, bodyType, doorsNumber, windows, typeCar, typeCharger, batteryLifeH, tankCapacityH, typeGasoline, priceS, priceM, yearS, yearM, accidents, gasLevel);
 		addVehicle(hybrid);
 		return hybrid;
 	}
-
+	/**
+	 * This method create and add a new motorcycle 
+	 * <b><pre>:<br><br>
+	 * 
+	 * @param basePrice double base price of vehicle
+	 * @param brand String about the vehicle brand
+	 * @param model integer year of model
+	 * @param cylinder double cylinder of vehicle
+	 * @param mileage integer of kilometers traveled
+	 * @param time String is the vehicle is new or used
+	 * @param typeMotorcycle String is standard, sport, scooter or cross
+	 * @param capacityGasoline double capacity of the gas tank
+	 * @return a new motorcycle
+	 * <b><post>:<br><br>
+	 */
 	public Motorcycle createMotorcycle(double basePrice, String brand, int model, int cylinder, int mileage, String time, String typeMotorcycle, double capacityGasoline) {
 		Motorcycle motorcycle = new Motorcycle(basePrice, brand, model, cylinder, mileage, time, typeMotorcycle, capacityGasoline);
 		addVehicle(motorcycle);
 		return motorcycle;
 	}
+	/**
+	 * This method create and add an used motorcycle 
+	 * <b><pre>:<br><br>
+	 * 
+	 * @param basePrice double base price of vehicle
+	 * @param brand String about the vehicle brand
+	 * @param model integer year of model
+	 * @param cylinder double cylinder of vehicle
+	 * @param mileage integer of kilometers traveled
+	 * @param time String is the vehicle is new or used
+	 * @param plaque String plaque
+	 * @param typeMotorcycle String is standard, sport, scooter or cross
+	 * @param capacityGasoline double capacity of the gas tank
+	 * @param priceS double price of soat document
+	 * @param priceM double price of mechanical technician document
+	 * @param yearS integer year of documents
+	 * @param yearM integer year of mechanical technician
+	 * @param accidents double price of accidents cover
+	 * @param gasLevel double of gas level
+	 * @return an used motorcycle
+	 * <b><post>:<br><br>
+	 */
 	public Motorcycle createMotorcycle(double basePrice, String brand, int model, int cylinder, int mileage, String time, String plaque, String typeMotorcycle, double capacityGasoline, double priceS, double priceM, int yearS, int yearM,  double accidents, double gasLevel) {
 		Motorcycle motorcycle = new Motorcycle(basePrice, brand, model, cylinder, mileage, time, plaque, typeMotorcycle, capacityGasoline, priceS, priceM, yearS, yearM, accidents, gasLevel);
 		addVehicle(motorcycle);
 		return motorcycle;
 	}
+	/**
+	 * This method get the parking lot in a matrix form
+	 * 
+	 *<b><pre>:<br>The matrix Car[][] is already initialize<br>
+	 *
+	 *@return Car matrix of parking lot
+	 *
+	 *<b>post:</b>
+	 */
+	public Car[][] getParking() {
+		return parkingLot;
+	}
 	public String getName() {
 		return this.name;
 	}
-	/**
-	 * 
-	 * @param name
-	 */
 	public void setName(String name) {
 		this.name = name;
 	}
 	public String getNit() {
 		return this.nit;
 	}
-	/**
-	 * 
-	 * @param nit
-	 */
 	public void setNit(String nit) {
 		this.nit = nit;
 	}
 	public int getSells() {
 		return this.sells;
 	}
-	/**
-	 * 
-	 * @param sells
-	 */
 	public void setSells(int sells) {
 		this.sells = sells;
 	}
 	public double getTotalGain() {
 		return this.totalGain;
 	}
-	/**
-	 * 
-	 * @param totalGain
-	 */
 	public void setTotalGain(double totalGain) {
 		this.totalGain = totalGain;
 	}
-
+	/**
+	 * This method deploy a list of vehicles on the concessioner 
+	 * <b><pre>:<br>A vehicle must be created as minimum<br>
+	 * 
+	 * @param choose is the integer to choose the vehicle to show
+	 * @return info as String with all information of vehicles
+	 * 
+	 * <b><post>:<br><br>
+	 */
 	public String showVehicles(int choose) {
 		String info = "";
-		boolean stop = false;
 		if(vehicles.size()>0) {
 			if(choose == 1) {
-				for(int i = 0; i < vehicles.size() && !stop; i++) { 
+				for(int i = 0; i < vehicles.size(); i++) { 
 					if(vehicles.get(i).getTime().equalsIgnoreCase("new")) {
 						if(vehicles.get(i) instanceof Gasoline) {
 							info += "\n**Gasoline Cars**"+"\n"+vehicles.get(i).description()+"\n"+"Number of vehicle in list: #"+(i+1)+"\n";
@@ -165,14 +329,12 @@ public class Company {
 							info += "\n**Motorcycle**"+"\n"+vehicles.get(i).description()+"\n"+"Number of vehicle in list: #"+(i+1)+"\n";
 						}
 					}
-					else {
-						info += "No new vehicles in the concessionary yet";
-						stop = true;
-					}
 				}
+				if (info.equals(""))
+					info += "No used vehicles in the concessionary yet";
 			}
 			if(choose == 2) {
-				for(int i = 0; i < vehicles.size() && !stop; i++) { 
+				for(int i = 0; i < vehicles.size(); i++) { 
 					if(vehicles.get(i).getTime().equalsIgnoreCase("used")) {
 						if(vehicles.get(i) instanceof Gasoline) {
 							info += "\n**Gasoline Cars**"+"\n"+vehicles.get(i).description()+"\n"+"Number of vehicle in list: #"+(i+1)+"\n";
@@ -186,12 +348,10 @@ public class Company {
 						if(vehicles.get(i) instanceof Motorcycle) {
 							info += "\n**Motorcycle**"+"\n"+vehicles.get(i).description()+"\n"+"Number of vehicle in list: #"+(i+1)+"\n";
 						}
-					}
-					else {
-						info += "No used vehicles in the concessionary yet";
-						stop = true;
-					}
+					}			
 				}
+				if (info.equals(""))
+					info += "No used vehicles in the concessionary yet";
 			}
 			if(choose == 3) {
 				for(int i = 0; i < vehicles.size(); i++) { 
@@ -214,25 +374,37 @@ public class Company {
 			info += "\nNo vehicles in the concessionary yet\n";
 		return info;
 	}
-
+	/**
+	 * This method add a vehicle to the arrayList
+	 * <b><pre>:<br>ArrayList of vehicle is already initialize<br>
+	 * 
+	 * @param vehicle object vehicle type
+	 * 
+	 * <b><post>:<br>Vehicle must be visible on the list<br>
+	 */
 	public void addVehicle(Vehicle vehicle) {
 		vehicles.add(vehicle);
 	}
 	/**
+	 * This method add a client with his respective seller 
+	 * <b><pre>:<br>The sellers are already created<br>
 	 * 
-	 * @param choose
-	 * @param name
-	 * @param lastName
-	 * @param id
-	 * @param phoneNumber
-	 * @param mail
+	 * @param choose position of the sales Man array
+	 * @param name String name of the client
+	 * @param lastName String last name of the client
+	 * @param id integer id of client
+	 * @param phoneNumber integer telephone of client 
+	 * @param email String mail of client
+	 * @return String info notifying the state of client adding 
+	 * 
+	 * <b><post>:<br><br>
 	 */
-	public String addClientToSeller(int choose, String name, String lastName, String id, String phoneNumber, String mail) {
+	public String addClientToSeller(int choose, String name, String lastName, String id, String phoneNumber, String email) {
 		boolean add = true;
 		String info = "";
 		if(sellers[choose].clients[4] != null) {
 			info += "The client will be added, but he will be in the waiting list";
-			Client client = new Client(name, lastName, id, phoneNumber, mail);
+			Client client = new Client(name, lastName, id, phoneNumber, email);
 			clientsHistorial.add(client);
 		}
 		for (int i = 0; i < sellers[choose].clients.length && add; i++) {
@@ -244,7 +416,7 @@ public class Company {
 		}
 		for (int i = 0; i < sellers[choose].clients.length&&add; i++) {
 			if(sellers[choose].clients[i] == null) {	
-				sellers[choose].clients[i] = new Client(name, lastName, id, phoneNumber,mail);
+				sellers[choose].clients[i] = new Client(name, lastName, id, phoneNumber,email);
 				sellers[choose].clients[i].setAssigned(true);
 				clientsHistorial.add(sellers[choose].clients[i]);
 				info += "Client added!";
@@ -253,6 +425,14 @@ public class Company {
 		}
 		return info;
 	}
+	/**
+	 * This method check if any client is waiting
+	 * <b><pre>:<br> a client is already create<br>
+	 * 
+	 * @return String info notifying if any client is waiting or not  
+	 * 
+	 * <b><post>:<br><br>
+	 */
 	public String clientsWaiting() {
 		String info = "";
 		for (int i = 0; i < clientsHistorial.size(); i++) {
@@ -264,6 +444,14 @@ public class Company {
 			info += "No clients waiting there";
 		return info;
 	}
+	/**
+	 * This method gets the first client waiting in the arrayList clientsHistorial
+	 * <b><pre>:<br> a client is already create<br>
+	 * 
+	 * @return returns the client
+	 * 
+	 * <b><post>:<br><br>
+	 */
 	public Client getClientWaiting() {
 		Client client = null;
 		if(clientsHistorial.get(0) != null)
@@ -274,26 +462,42 @@ public class Company {
 			}
 		return client;
 	}
+	/**
+	 * This method assign the client founded with the method getClientWaiting to a seller chosen
+	 * <b><pre>:<br> a client and a seller is already create <br>
+	 * 
+	 * @param sellerNumber is the number of the position of a specific seller in the array of sellers
+	 * @return String info notifying if the operation was successful or not
+	 * 
+	 * <b><post>:<br><br>
+	 */
 	public String attendClientWaiting(int sellerNumber) {
 		String info = "";
 		boolean stop = false;
-		if(sellers[sellerNumber] != null) {
-			if(sellers[sellerNumber].clients[0] != null) {
-				for (int i = 0; i < sellers.length && !stop; i++) {
-					if(sellers[sellerNumber].clients[i].equals(null)) {
-						sellers[sellerNumber].clients[i] = getClientWaiting();
-						stop = true;
-						info += "The client was assigned to the seller " + sellers[sellerNumber].getName();
-					}
-				}
+		if(sellers[sellerNumber] != null && clientsHistorial.size() > 0) {
+			for (int i = 0; i < sellers.length && !stop; i++) {
+				if(sellers[sellerNumber].clients[i] == null) {
+					sellers[sellerNumber].clients[i] = getClientWaiting();
+					sellers[sellerNumber].clients[i].setAssigned(true);
+					stop = true;
+					info += "The client was assigned to the seller " + sellers[sellerNumber].getName();
+				}	
 			}
-			else
-				info += "No clients waiting to be assign\n";
 		}
 		else
-			info += "No sellers in this position";
+			info += "You maybe have one of these problems:\nNo clients in the company yet\nNo sellers in that position\nNo clients waiting";
 		return info;
 	}
+	/**
+	 * This method remove a specific client of the array of a specific seller
+	 * <b><pre>:<br> a client and a seller is already create <br>
+	 * 
+	 * @param sellerNumber is the number of the position of a specific seller in the array of sellers
+	 * @param clientNumber is the number of the position of a specific client in the array of clients
+	 * @return String info notifying that the operation was successful
+	 * 
+	 * <b><post>:<br><br>
+	 */
 	public String removeClient(int sellerNumber, int clientNumber) {
 		String info = "";
 		sellers[sellerNumber].clients[clientNumber].setAssigned(false);
@@ -302,6 +506,14 @@ public class Company {
 		info += "Client removed of the array of the seller";
 		return info;
 	}
+	/**
+	 * This method deploy a list of clients per sellers
+	 * <b><pre>:<br>A client must be created as minimum<br>
+	 * 
+	 * @return info as String with the information of client and his seller attend
+	 * 
+	 * <b><post>:<br>Notify slots remaining per seller<br>
+	 */
 	public String clientsPerSeller() {
 		String info = "";
 		int k = 0;
@@ -322,7 +534,16 @@ public class Company {
 		}
 		return info;
 	}
-
+	/**
+	 * This method show the vehicles on the arrayList of a specific client 
+	 * <b><pre>:<br><br>
+	 * 
+	 * @param sellerNumber integer position of arrayList salesMan
+	 * @param clientNumber integer position of array clients
+	 * @return info String returns information of favorite vehicle
+	 * 
+	 * <b><post>:<br>Deploy a list<br>
+	 */
 	public String favoriteVehicles(int sellerNumber, int clientNumber) {
 		String info = "";
 		if(sellers[sellerNumber].clients[clientNumber].favorites.size() > 0) {
@@ -334,7 +555,17 @@ public class Company {
 			info += "This client hasn't vehicles added in his favorites";
 		return info;
 	}
-
+	/**
+	 * This method add a seller to the array of sellers
+	 * <b><pre>:<br> The array of sellers is already initialize<br>
+	 * 
+	 * @param name is the name of the seller
+	 * @param lastName is the last name of the seller
+	 * @param id is the id of the seller
+	 * @return String info notifying what happened with the seller
+	 * 
+	 * <b><post>:<br><br>
+	 */
 	public String addSeller(String name, String lastName, String id) {
 		boolean add = true;
 		String info = "";
@@ -356,6 +587,14 @@ public class Company {
 		}
 		return info;
 	}
+	/**
+	 * This method show the complete information per seller
+	 *  <b><pre>:<br>array of sellers must be already initialize<br>
+	 *  
+	 * @return info String with the information
+	 * 
+	 * <b><post>:<br>Deploy a list<br>
+	 */
 	public String showSellersComplete() {
 		String info = "";
 		for (int i = 0; i < sellers.length; i++) {
@@ -364,24 +603,66 @@ public class Company {
 		}
 		return info;
 	}
-
+	/**
+	 * This method add the documentation of a vehicle
+	 * <b><pre>:<br>A vehicle is created as minimum<br>
+	 * 
+	 * @param vehicleNumber number on the arrayList of vehicles
+	 * @param yearS year of soat
+	 * @param yearM year of mechanical technician
+	 * @param accidents cover of accidents price
+	 * @param priceS price of soat
+	 * @param priceM price of mechanical technician 
+	 * @param gas level of gas
+	 * 
+	 * <b><post>:<br>A vehicle added documentation was sold too<br>
+	 */
 	public void addDocumentation(int vehicleNumber, double priceS, double priceM, int yearS, int yearM, double accidents, double gasLevel) {
 		Document soat  = new SOAT(priceS, yearS, accidents);
 		Document mech  = new MechanicalTechnician(priceM, yearM, gasLevel);
 		vehicles.get(vehicleNumber).legalDocumentation.add(soat);
 		vehicles.get(vehicleNumber).legalDocumentation.add(mech);
 	}
+	/**
+	 * This method add the soat of a vehicle
+	 * <b><pre>:<br>A vehicle is created as minimum<br>
+	 * 
+	 * @param vehicleNumber number on the arrayList of vehicles
+	 * @param priceS price of soat
+	 * @param yearS year of soat
+	 * @param accidents cover of accidents price
+	 * 
+	 * <b><post>:<br>A vehicle added soat was sold too<br>
+	 */
 	public void addDocumentationSoat(int vehicleNumber, double priceS, int yearS, double accidents) {
 		Document soat  = new SOAT(priceS, yearS, accidents);
 		vehicles.get(vehicleNumber).legalDocumentation.add(soat);
 	}
+	/**
+	 * This method add the mechanical technician of a vehicle
+	 * <b><pre>:<br>A vehicle is created as minimum<br>
+	 * 
+	 * @param vehicleNumber number on the arrayList of vehicles
+	 * @param priceM price of mechanical technician
+	 * @param yearM year of mechanical technician
+	 * @param accidents cover of accidents price
+	 * 
+	 * <b><post>:<br>A vehicle added mechanical technician was sold too<br>
+	 */
 	public void addDocumentationMech(int vehicleNumber, double priceM, int yearM, double gasLevel) {
 		Document mech  = new MechanicalTechnician(priceM, yearM, gasLevel);
 		vehicles.get(vehicleNumber).legalDocumentation.add(mech);
 	}
-	public Car[][] getParking() {
-		return parkingLot;
-	}	
+	/**
+	 * This method get the information of the car on the parking lot depend of the model year
+	 * <b><pre>:<br>The matrix Car[][] is already initialize<br>
+	 * <b><pre>:<br>The matrix Car[][] is already initialize<br>
+	 * 
+	 * @param request integer of the year model to request.
+	 * @return info String with the information about the car requested.
+	 * 
+	 * <b><post>:<br>Returns the information os the specific car<br>
+	 */
 	public String getInfoParking(int request) {
 		String info = "";
 		boolean cont = true;
@@ -456,6 +737,15 @@ public class Company {
 		}
 		return info;
 	}
+	/**
+	 * This method organize the used cars on the parking lot matrix depend of their models year.
+	 * <b><pre>:<br>The matrix Car[][] is already initialize<br>
+	 * <b><pre>:<br>An used car is created as minimum<br>
+	 * 
+	 * @return info String in case if the parking lot is full.
+	 * 
+	 * <b><post>:<br><br>
+	 */
 	public String organizeParking() {
 		String info = "";
 		boolean cont = true;

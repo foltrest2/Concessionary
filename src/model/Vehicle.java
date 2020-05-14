@@ -24,16 +24,17 @@ public abstract class Vehicle {
 //	methods
 	
 	/**
+	 * This method is the constructor of a new vehicle
+	 * <b><pre>:<br><br>
 	 * 
-	 * @param sellPrice
-	 * @param basePrice
-	 * @param brand
-	 * @param model
-	 * @param cylinder
-	 * @param mileage
-	 * @param time
-	 * @param document
-	 * @param owner
+	 * @param basePrice double base price of vehicle
+	 * @param brand String about the vehicle brand
+	 * @param model integer year of model
+	 * @param cylinder double cylinder of vehicle
+	 * @param mileage integer of kilometers traveled
+	 * @param time String is the vehicle is new or used
+	 * @return a new vehicle
+	 * <b><post>:<br><br>
 	 */
 	public Vehicle(double basePrice, String brand, int model, int cylinder, int mileage, String time) {
 		this.basePrice = basePrice;
@@ -46,7 +47,25 @@ public abstract class Vehicle {
 		this.sold = false;
 		legalDocumentation = new ArrayList<>();
 		}
-	
+	/**
+	 * This method is the constructor of an used vehicle
+	 * <b><pre>:<br><br>
+	 * 
+	 * @param basePrice double base price of vehicle
+	 * @param brand String about the vehicle brand
+	 * @param model integer year of model
+	 * @param cylinder double cylinder of vehicle
+	 * @param mileage integer of kilometers traveled
+	 * @param time String is the vehicle is new or used
+	 * @param priceS double price of soat document
+	 * @param priceM double price of mechanical technician document
+	 * @param yearS integer year of documents
+	 * @param yearM integer year of mechanical technician
+	 * @param accidents double price of accidents cover
+	 * @param gasLevel double of gas level
+	 * @return an used vehicle
+	 * <b><post>:<br><br>
+	 */
 	public Vehicle(double basePrice, String brand, int model, int cylinder, int mileage, String time, String plaque, double priceS, double priceM, int yearS, int yearM, double accidents, double gasLevel) {
 		this.basePrice = basePrice;
 		this.brand = brand;
@@ -64,30 +83,18 @@ public abstract class Vehicle {
 		legalDocumentation.add(mech);
 	}
 
-	/**
-	 * @return the time
-	 */
 	public String getTime() {
 		return time;
 	}
 
-	/**
-	 * @param time the time to set
-	 */
 	public void setTime(String time) {
 		this.time = time;
 	}
 
-	/**
-	 * @return the plaque
-	 */
 	public String getPlaque() {
 		return plaque;
 	}
 
-	/**
-	 * @param plaque the plaque to set
-	 */
 	public void setPlaque(String plaque) {
 		this.plaque = plaque;
 	}
@@ -96,10 +103,6 @@ public abstract class Vehicle {
 		return this.sellPrice;
 	}
 
-	/**
-	 * 
-	 * @param sellPrice
-	 */
 	public void setSellPrice(double sellPrice) {
 		this.sellPrice = sellPrice;
 	}
@@ -108,10 +111,6 @@ public abstract class Vehicle {
 		return this.basePrice;
 	}
 
-	/**
-	 * 
-	 * @param basePrice
-	 */
 	public void setBasePrice(double basePrice) {
 		this.basePrice = basePrice;
 	}
@@ -120,10 +119,6 @@ public abstract class Vehicle {
 		return this.brand;
 	}
 
-	/**
-	 * 
-	 * @param brand
-	 */
 	public void setBrand(String brand) {
 		this.brand = brand;
 	}
@@ -132,10 +127,6 @@ public abstract class Vehicle {
 		return this.model;
 	}
 
-	/**
-	 * 
-	 * @param model
-	 */
 	public void setModel(int model) {
 		this.model = model;
 	}
@@ -144,14 +135,6 @@ public abstract class Vehicle {
 		return this.cylinder;
 	}
 
-	/**
-	 * This method gets the cylinder of vehicle
-	 * <b><pre>:<br><br>
-	 * 
-	 * @return cylinder
-	 * 
-	 * <b>post:</b><br>
-	 */
 	public void setCylinder(int cylinder) {
 		this.cylinder = cylinder;
 	}
@@ -160,10 +143,6 @@ public abstract class Vehicle {
 		return this.mileage;
 	}
 
-	/**
-	 * 
-	 * @param mileage
-	 */
 	public void setMileage(int mileage) {
 		this.mileage = mileage;
 	}
@@ -172,19 +151,16 @@ public abstract class Vehicle {
 		return this.owner;
 	}
 
-	/**
-	 * 
-	 * @param owner
-	 */
 	public void setOwner(String owner) {
 		this.owner = owner;
 	}
 
-	/**
-	 * @return the sold
-	 */
 	public boolean isSold() {
 		return sold;
+	}
+	
+	public void setSold(boolean sold) {
+		this.sold = sold;
 	}
 	
 	public String soldToString() {
@@ -197,12 +173,13 @@ public abstract class Vehicle {
 	}
 
 	/**
-	 * @param sold the sold to set
+	 * This method returns the information of the vehicle
+	 * <b><pre>:<br>A vehicle must be created as minimum<br>
+	 * 
+	 * @return info String with the information of the vehicle
+	 * 
+	 * <b>post:</b><br>
 	 */
-	public void setSold(boolean sold) {
-		this.sold = sold;
-	}
-	
 	public String description() {
 		String info = "\nCurrent owner: "+owner+"\n\nSold: "+soldToString()+"\nSell price: "+sellPrice+"\nBase price: "+basePrice+"\nBrand: "+brand+"\nModel: "+model+"\nCylinder: "+cylinder+"\nMileage: "+mileage+"\nIs new or used?: "+time+"\nPlaque: "+plaque + "\n";
 		if(Vehicle.this.getPlaque() == null) { 

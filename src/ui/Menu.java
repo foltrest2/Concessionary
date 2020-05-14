@@ -29,14 +29,33 @@ public class Menu {
 	private Company company = new Company("Volkswagen Group","800.169.756-8",0,0);
 	static Scanner lector;
 
+	/**
+	 *This method initialize the menu.
+	 *<pre>:<br><br>
+	 *<b>post:</b> The Menu is ready.<br>
+	 */
 	public Menu() {
 		this.company = readInitialData();
 	}
+	/**
+	 *This method initialize the company.
+	 *
+	 *<b>pre:<br><br>
+	 *
+	 *post:<br> The company is already created.<br>
+	 *@return returns company. 
+	 */
 	public Company readInitialData() {
 		System.out.println("**********\nWelcome!\n**********\nProgram made for " + company.getName() + "\nNIT: " + company.getNit() + "\n© Copyright 2020\n");
 		lector = new Scanner(System.in);
 		return company;
 	}
+	/**
+	 *This method read the information of a new client and then is assigned to a seller.
+	 *<b>pre:</b>The sellers array must be created.<br>
+	 *
+	 *<b>post:</b>A new client was created and assigned to a seller.<br>
+	 */
 	public void enterClient() {
 		System.out.println("Enter the client name");
 		String name = lector.nextLine();
@@ -65,6 +84,12 @@ public class Menu {
 		lector.nextLine();
 		System.out.println(company.addClientToSeller(choose, name, lastName, id, phoneNumber, email));
 	}
+	/**
+	 *This method read the information of a new seller.
+	 *<b>pre:</b>The sellers array must be created.<br>
+	 *
+	 *<b>post:</b>A new seller was created<br>
+	 */
 	public void enterSeller() {
 		System.out.println("Enter the seller name");
 		String name = lector.nextLine();
@@ -74,6 +99,15 @@ public class Menu {
 		String id = lector.nextLine();
 		System.out.println(company.addSeller(name, lastName, id));
 	}
+	/**
+	 *This method is a sub menu for select the type of car between Gasoline, electric or hybrid car to add to company.
+	 *<b>pre:</b>Company already created.<br>
+	 *
+	 * @param choose is the number of vehicle 
+	 * @return info to report the state of the process.
+	 * 
+	 *<b>post:</b>A selection was done and then can continue to the process of add a car.<br>
+	 */
 	public String vehicleChosen(int choose) {
 		String info = "";
 		switch (choose) {
@@ -96,6 +130,14 @@ public class Menu {
 
 		return info;
 	}
+	/**
+	 * This method request the information of a motorcycle and then create it. 
+	 * <b>pre<b>:</b>Company already created.<br> 
+	 * 
+	 * @return info to report the state of the process.
+	 * 
+	 * <b>post:</b>The motorcycle was created.<br>
+	 */
 	public String createMotorcycle() {
 		String info = "";
 		System.out.println("Type his base price");
@@ -121,10 +163,10 @@ public class Menu {
 		}
 		String typeMotorcycle = "";
 		while(typeMotorcycle.equals("")) {
-			System.out.println("Enter the type of the motorcycle\n1. Standar\n2. Sport\n3. Scooter\n4. Croos");
+			System.out.println("Enter the type of the motorcycle\n1. Standard\n2. Sport\n3. Scooter\n4. Croos");
 			int typeNumber = lector.nextInt();
 			if(typeNumber == 1)
-				typeMotorcycle = "Standar";
+				typeMotorcycle = "Standard";
 			else if(typeNumber == 2)
 				typeMotorcycle = "Sport";
 			else if(typeNumber == 3)
@@ -161,6 +203,13 @@ public class Menu {
 		}
 		return info += "The motorcycle was succesfully created";
 	}
+	/**This method receives the type of car to add, and request all information.
+	 * <b>pre<b>:</b>Company already created.<br> 
+	 * 
+	 * @param typeCar Integer of the selection of what type of car to add.
+	 * 
+	 * <b>post:</b>The car information is saved to continue to the process of ad a car.<br>
+	 */
 	public void createNewCar(int typeCar) {
 		System.out.println("Type his base price");
 		double basePrice = lector.nextDouble();
@@ -386,6 +435,15 @@ public class Menu {
 			}
 		}
 	}
+	/**
+	 * This method notify about the car was added without problems.
+	 * <b>pre<b>:</b>A car was created.<br> 
+	 * 
+	 * @param selection integer depend of the type of car that was created.
+	 * @return info as String of the notification.
+	 * 
+	 * <b>post:</b>The new car now is visible on the list.<br>
+	 */
 	public String carChosen(int selection) {
 		String info = "";
 		switch (selection) {
@@ -409,6 +467,14 @@ public class Menu {
 		}
 		return info;
 	}
+	/**
+	 * This method select the type of vehicle to add between Car o Motorcycle.
+	 * <b>pre<b>:</b>The company was created.<br>
+	 * 
+	 * @return info as String of the notification of process.
+	 * 
+	 * <b>post:</b>Continues on the process to add a vehicle.<br>
+	 */
 	public String enterVehicle() {
 		int choose = 0;
 		while(choose < 1 || choose > 2) {
@@ -418,6 +484,11 @@ public class Menu {
 		String info = vehicleChosen(choose);
 		return info;
 	}
+	/**
+	 * This method show the historical clients
+	 * <b>pre<b>:</b>The historical clients was initialized.<br>
+	 * <b>post:</b>Deploy a list.<br>
+	 */
 	public void showClientsHistorial() {
 		String info = "";
 		for (int i = 0; i < company.clientsHistorial.size(); i++) {
@@ -427,6 +498,14 @@ public class Menu {
 		} 
 		System.out.println("\nThe company has attend " + company.clientsHistorial.size() + " clients at the moment\n");
 	}
+	/**
+	 * This method makes the discount of a selected vehicle and then apply it, used on the Main menu.
+	 * <b>pre<b>:</b>A vehicle must be created as minimum.<br>
+	 * 
+	 * @param vehicleNumber is the position of the vehicle to apply the discount
+	 * 
+	 * <b>post:</b>The discount was applied to selected vehicle.<br>
+	 */
 	public void discount(int vehicleNumber) {
 		double value = 0;
 		double amount = 0;
@@ -443,6 +522,15 @@ public class Menu {
 		company.vehicles.get(vehicleNumber).setSellPrice(finalValue);
 		System.out.println("Discount of "+value*100+"% Was applied to vehicle!\nPlease check on the vehicle list\n");
 	}
+	/**
+	 * This method decide with the information that it receives if is necessary to appply a discount or not
+	 * <b>pre<b>:</b>A vehicle must be created as minimum.<br>
+	 * 
+	 * @param decision is the decision to apply or not the discount
+	 * @param vehicleNumber is the position of the vehicle
+	 * 
+	 * <b>post:</b><br>
+	 */
 	public void applyDiscount(int decision, int vehicleNumber) {
 		switch (decision) {
 		case 1:
@@ -455,6 +543,16 @@ public class Menu {
 			break;
 		}
 	}
+	/**
+	 * This method makes the pay for a vehicle.
+	 * <b>pre<b>:</b>A vehicle must be created as minimum.<br>
+	 * 
+	 * @param vehicleNumber Integer of position on the arrayList
+	 * @param sellerNumber Integer of position on sales Man array
+	 * @param clientNumber Integer of position of client on clients arrayList
+	 * 
+	 * <b>post:</b>The paid was finalized and the vehicle now have a new owner.<br>
+	 */ 
 	public void pay(int vehicleNumber, int sellerNumber, int clientNumber) {
 		int docSoat = company.vehicles.get(vehicleNumber).legalDocumentation.size()-2;
 		int docMech = company.vehicles.get(vehicleNumber).legalDocumentation.size()-1;
@@ -493,6 +591,14 @@ public class Menu {
 		double pay = company.vehicles.get(vehicleNumber).getSellPrice();
 		company.setTotalGain(pay);
 	}
+	/**
+	 * This method receives the operation to do with a client, between add a vehicle to favorites or do the documentation for a vehicle to sell.
+	 * <b>pre<b>:</b>A vehicle and a client must be created as minimum.<br>
+	 * 
+	 * @param choose Integer of the option selected. 
+	 * 
+	 * <b>post:</b>Makes the operation that was selected.<br>
+	 */
 	public void operationsWithSpecificClient(int choose) {
 		System.out.println("The company has these sellers with those assigned clients");
 		System.out.println(company.clientsPerSeller()+"\n");
@@ -623,6 +729,13 @@ public class Menu {
 		else
 			System.out.println("No clients with the seller yet");
 	}
+	/**
+	 * This method receives the model year to know on the parking lot.
+	 * <b>pre:</b>A vehicle of 2014 or less model must be created as minimum.<br>
+	 * <b>pre:</b>Must be select an option between 1 to 5.<br>
+	 * 
+	 * <b>post:</b>Will continue to know the information of that model on the parking lot.<br>
+	 */
 	public void selectModelOrganize() {
 		int select = 0; 
 		boolean cont = false;
@@ -662,6 +775,16 @@ public class Menu {
 		else
 			System.out.println("\nNo vehicles in the concessionary yet\n");
 	}
+	/**
+	 * This method convert a boolean to a String yes or not
+	 * 
+	 * <b>pre:</b>a boolean its required<br>
+	 * 
+	 * @param x boolean received
+	 * @return boolean converted into yes or not
+	 * 
+	 * <b>post:</b><br>
+	 */
 	public String toString(boolean x) {
 		String converted = "";
 		if(x==true)
@@ -670,6 +793,12 @@ public class Menu {
 			converted = "No";
 		return converted;
 	}
+	/**
+	 * This method collect the information for attend a waiting client
+	 * <b>pre:</b>A client as minimum was created.<br>
+	 * 
+	 * <b>post:</b>The waiting client is assigned to the seller chosen<br>
+	 */
 	public void attendWaitingClient() {
 		System.out.println("The company has these sellers with those assigned clients");
 		System.out.println(company.clientsPerSeller()+"\n");
@@ -682,6 +811,14 @@ public class Menu {
 		sellerNumber-=1;
 		System.out.println(company.attendClientWaiting(sellerNumber));
 	}
+	/**
+	 *This method add read the necessary information for remove a client of a array of sellers and show his favorites, depending of the integer choose.
+	 *<b>pre:</b>A client as minimum was created.<br>
+	 *
+	 *@param choose is the number of the select option 
+	 *
+	 *<b>post:</b>The selected client has a favorite vehicle on his list or is in the array of sellers.<br>
+	 */
 	public void same(int choose) {
 		System.out.println("The company has these sellers with those assigned clients");
 		System.out.println(company.clientsPerSeller()+"\n");
@@ -728,6 +865,12 @@ public class Menu {
 		else
 			System.out.println("No clients with the seller yet");
 	}
+	/**
+	 * This method show the catalog of vehicles depend of the choose to show
+	 *  <b>pre:</b>Select a number between 1 or 3.<br>
+	 *  
+	 *  <b>post:</b><br>
+	 */
 	public void showCatalogue() {
 		int choose = 0;
 		while(choose < 1 || choose > 3) {
@@ -736,9 +879,23 @@ public class Menu {
 		}
 		System.out.println(company.showVehicles(choose));
 	}
+	/**
+	 * This method show the actualized information of the company
+	 * <b>pre:</b>Company must be initialized<br>
+	 * 
+	 * <b>post:</b><br>
+	 */
 	public void showInfoCompany() {
 		System.out.println("\n***************\nThis is the latest information of the company: \n\nThe company sold a total of " + company.getSells() + " vehicles\nThe company gain a total of $" + company.getTotalGain() + "\n***************\n");
 	}
+	/**
+	 * This method is the operation of the options to select on Main menu.
+	 * <b>pre:</b>Select numbers between that options.<br>
+	 * 
+	 * @param choice
+	 * 
+	 * <b>post:</b><br>
+	 */
 	public void operation(int choice) {
 		switch (choice) {
 
@@ -806,14 +963,34 @@ public class Menu {
 		break;
 		}
 	}
+	/**
+	 * This method deploy the main program menu.
+	 * <b>pre:</b>Company and employees must be initialized.<br>
+	 * <b>pre:</b>Select a valid option.<br>
+	 * 
+	 * <b>post:</b><br>
+	 */
 	public void showMenu() {
 		System.out.println("What do you want to do?\n 1. Enter clients\n 2. Show clients historial\n 3. Show clients per seller\n 4. Clients waiting\n 5. Attend waiting client\n 6. Remove client from the array of sellers\n 7. Enter seller\n 8. Show sellers\n 9. Enter vehicles\n 10. Show catalogue of vehicles in the concessionary\n 11. Add a vehicle favorite to the list of the client\n 12. Show the favorites of a client\n 13. Sell a vehicle\n 14. View of the parking\n 15. Exit\n");
 	}
+	/**
+	 *This method read the option entry by the client for the Main menu.
+	 *<b>pre:</b>Select an option between 1 to 11. <br>
+	 *
+	 *@return the select option of the menu
+	 *<b>post:</b><br>
+	 */
 	public int readOption() {	
 		int choice = lector.nextInt();
 		lector.nextLine();
 		return choice;
 	}
+	/**
+	 * This method start the program, initialize some sellers, company and show the information of the company.
+	 * <b>pre:</b><br>
+	 * 
+	 * <b>post:</b><br>
+	 */
 	public void startProgram() {
 		int choice;
 		do {
